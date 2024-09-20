@@ -10,13 +10,13 @@
   
 class Game {
  public:
-  Game(std::size_t grid_width, std::size_t grid_height);
+  Game(std::size_t grid_width, std::size_t grid_height,int Diffi);
   void Run(Controller const &controller, Renderer &renderer,
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
-  std::vector<SDL_Point> ObstaclePosition;
   
+  std::vector<SDL_Point> ObstaclePosition;
  private:
   Snake snake;
   SDL_Point food;
@@ -25,12 +25,11 @@ class Game {
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
-
   int score{0};
-
+  int Difficulty{1} ;
   void PlaceFood();
   void Update();
-  
+
   void PlaceObstacle();
   bool ObstacleCell(int x, int y); 
   

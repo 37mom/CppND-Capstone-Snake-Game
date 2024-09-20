@@ -23,6 +23,7 @@ public:
   void StoreDataInFile(User * );
   void RetriveDataFromFile();
   static bool endGameFlag;
+  int Difficulty;
 
 private:
     User usr;

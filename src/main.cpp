@@ -31,7 +31,8 @@ int main() {
       // Game Start
       Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
       Controller controller;
-      Game game(kGridWidth, kGridHeight);
+      Game game(kGridWidth, kGridHeight,MngrObj.Difficulty);
+    
       game.Run(controller, renderer, kMsPerFrame);
 
       string name = usrObj.getUserName();

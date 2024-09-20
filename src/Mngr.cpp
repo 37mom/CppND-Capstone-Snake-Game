@@ -49,11 +49,30 @@ int Mngr::GameInit()
 void Mngr::GameHandler(int &State , User * Usr)
 {
   std::map<string, int> History;
+  int pressedkey =0;
 	switch (State)
     {
         case 1:
         NewPlayer(Usr);
         endGameFlag = false;
+        cout<< "Please choose Difficulty from 1-> Easy ,2-> Medium ,3-> Hard : " ;
+        while (!(cin >>  pressedkey))
+        {
+        	//Clear buffer
+        	cin.clear();
+        	// Check on Entre
+        	while (cin.get() != '\n')
+        	{
+        		continue;
+        	}
+
+        	// Ask user to try again:
+        	cout << "FAILED.Please enter correct number -->  ";
+        }
+        if ((pressedkey >= 1) || (pressedkey <= 3))
+        {
+        	Difficulty = pressedkey;
+        }
         break;
         
     	case 2:
