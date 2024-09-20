@@ -1,38 +1,36 @@
-#include "User.h"
+#include "GameUser.h"
 
 
-
-User::User(string UsrName, int UsrScore)
+GameUser::GameUser(string UsrName, int UsrScore)
 {
     this->UserName = UsrName;
     this->UserScore = UsrScore;
 }
-void User::setUserName()
+void GameUser::GUS_setUserName()
 {
- 
     string name;
-    cout<<"Entre Player Name : ";
+    cout<<"Enter Player Name : ";
     cin >> name;
     this->UserName = name;
 }
 
-void User::setUserScore(int Score)
+void GameUser::GUS_setUserScore(int Score)
 {
     this->UserScore = Score;
 
 }
 
-string User::getUserName()
+string GameUser::GUS_getUserName()
 {
     return UserName;
 }
 
-int User::getUserScore()
+int GameUser::GUS_getUserScore()
 {   
     return UserScore;
 }
 
-map<string, int> User::ReadUsersHistory()
+map<string, int> GameUser::GUS_ReadUsersHistory()
 {
   string line ,userName;
   int UserScore;
@@ -61,12 +59,10 @@ map<string, int> User::ReadUsersHistory()
     ofstream outfile("DS.txt");
     cout << "History file not exist. New one created." << endl;
   }
-  
-  
-  
+
 }
 
-void User::DisplayGameHistory(std::map<string, int> &GameHistory)
+void GameUser::GUS_DisplayGameHistory(std::map<string, int> &GameHistory)
 {
 
   int cnt = 0;
@@ -78,10 +74,7 @@ void User::DisplayGameHistory(std::map<string, int> &GameHistory)
   }
 }
 
-
-
-
-void User::WriteUsersHistory(map<string, int> History)
+void GameUser::GUS_WriteUsersHistory(map<string, int> History)
 {
   map<string, int>::iterator element;
 
@@ -104,9 +97,7 @@ void User::WriteUsersHistory(map<string, int> History)
 
     Data.close();
   }
-  
-  
-  
+
 }
     
 

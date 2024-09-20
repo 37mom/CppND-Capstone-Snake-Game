@@ -1,8 +1,8 @@
 #include <iostream>
 #include "controller.h"
 #include "game.h"
+#include "GameManager.h"
 #include "renderer.h"
-#include "Mngr.h"
 
 int main() {
   constexpr std::size_t kFramesPerSecond{60};
@@ -12,8 +12,8 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
   
-  Mngr MngrObj;
-  User usrObj;
+  GameManager MngrObj;
+  GameUser usrObj;
   std::map<string, int> His;
   string name ;
   int Score ;
@@ -23,8 +23,8 @@ int main() {
   
   while (true)
   {
-    int state = MngrObj.GameInit();
-    MngrObj.GameHandler(state , &usrObj);
+    int state = MngrObj.GMA_Initialize();
+    MngrObj.GMA_Handler(state , &usrObj);
     
     if(state == 1 || state == 2)
     {
@@ -35,7 +35,7 @@ int main() {
     
       game.Run(controller, renderer, kMsPerFrame);
 
-      string name = usrObj.getUserName();
+      string name = usrObj.GUS_getUserName();
       int Score = game.GetScore();
       int Size = game.GetSize();
       cout << "-----------------------------------" << endl;
@@ -45,14 +45,14 @@ int main() {
       cout << "Score: " << Score << "\n";
       cout << "Snake Size: " << Size << "\n";
       His.insert(make_pair(name, Score));
-      usrObj.WriteUsersHistory(His);
+      usrObj.GUS_WriteUsersHistory(His);
     }
     else if(state == 3)
     {
       if(name != "")
       {
         His.insert(make_pair(name, Score));
-        usrObj.WriteUsersHistory(His); 
+        usrObj.GUS_WriteUsersHistory(His);
       }
 
       // Game end 
