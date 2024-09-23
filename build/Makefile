@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/workspace/CppND-Capstone-Snake-Game
+CMAKE_SOURCE_DIR = /workspace/home/CppND-Capstone-Snake-Game
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/workspace/CppND-Capstone-Snake-Game/build
+CMAKE_BINARY_DIR = /workspace/home/CppND-Capstone-Snake-Game/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles /home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles /workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,59 +123,59 @@ SnakeGame/fast:
 	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/build
 .PHONY : SnakeGame/fast
 
-src/Mngr.o: src/Mngr.cpp.o
+src/GameManager.o: src/GameManager.cpp.o
 
-.PHONY : src/Mngr.o
-
-# target to build an object file
-src/Mngr.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/Mngr.cpp.o
-.PHONY : src/Mngr.cpp.o
-
-src/Mngr.i: src/Mngr.cpp.i
-
-.PHONY : src/Mngr.i
-
-# target to preprocess a source file
-src/Mngr.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/Mngr.cpp.i
-.PHONY : src/Mngr.cpp.i
-
-src/Mngr.s: src/Mngr.cpp.s
-
-.PHONY : src/Mngr.s
-
-# target to generate assembly for a file
-src/Mngr.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/Mngr.cpp.s
-.PHONY : src/Mngr.cpp.s
-
-src/User.o: src/User.cpp.o
-
-.PHONY : src/User.o
+.PHONY : src/GameManager.o
 
 # target to build an object file
-src/User.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/User.cpp.o
-.PHONY : src/User.cpp.o
+src/GameManager.cpp.o:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/GameManager.cpp.o
+.PHONY : src/GameManager.cpp.o
 
-src/User.i: src/User.cpp.i
+src/GameManager.i: src/GameManager.cpp.i
 
-.PHONY : src/User.i
+.PHONY : src/GameManager.i
 
 # target to preprocess a source file
-src/User.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/User.cpp.i
-.PHONY : src/User.cpp.i
+src/GameManager.cpp.i:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/GameManager.cpp.i
+.PHONY : src/GameManager.cpp.i
 
-src/User.s: src/User.cpp.s
+src/GameManager.s: src/GameManager.cpp.s
 
-.PHONY : src/User.s
+.PHONY : src/GameManager.s
 
 # target to generate assembly for a file
-src/User.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/User.cpp.s
-.PHONY : src/User.cpp.s
+src/GameManager.cpp.s:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/GameManager.cpp.s
+.PHONY : src/GameManager.cpp.s
+
+src/GameUser.o: src/GameUser.cpp.o
+
+.PHONY : src/GameUser.o
+
+# target to build an object file
+src/GameUser.cpp.o:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/GameUser.cpp.o
+.PHONY : src/GameUser.cpp.o
+
+src/GameUser.i: src/GameUser.cpp.i
+
+.PHONY : src/GameUser.i
+
+# target to preprocess a source file
+src/GameUser.cpp.i:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/GameUser.cpp.i
+.PHONY : src/GameUser.cpp.i
+
+src/GameUser.s: src/GameUser.cpp.s
+
+.PHONY : src/GameUser.s
+
+# target to generate assembly for a file
+src/GameUser.cpp.s:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/GameUser.cpp.s
+.PHONY : src/GameUser.cpp.s
 
 src/controller.o: src/controller.cpp.o
 
@@ -321,12 +321,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... SnakeGame"
 	@echo "... edit_cache"
-	@echo "... src/Mngr.o"
-	@echo "... src/Mngr.i"
-	@echo "... src/Mngr.s"
-	@echo "... src/User.o"
-	@echo "... src/User.i"
-	@echo "... src/User.s"
+	@echo "... src/GameManager.o"
+	@echo "... src/GameManager.i"
+	@echo "... src/GameManager.s"
+	@echo "... src/GameUser.o"
+	@echo "... src/GameUser.i"
+	@echo "... src/GameUser.s"
 	@echo "... src/controller.o"
 	@echo "... src/controller.i"
 	@echo "... src/controller.s"

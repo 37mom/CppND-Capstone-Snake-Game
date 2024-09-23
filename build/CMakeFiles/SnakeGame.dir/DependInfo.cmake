@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/workspace/CppND-Capstone-Snake-Game/src/Mngr.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/Mngr.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/User.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/User.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/controller.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/controller.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/game.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/game.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/main.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/main.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/renderer.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/snake.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/snake.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/GameManager.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/GameManager.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/GameUser.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/GameUser.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/controller.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/controller.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/game.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/game.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/main.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/main.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/renderer.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"
+  "/workspace/home/CppND-Capstone-Snake-Game/src/snake.cpp" "/workspace/home/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/snake.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

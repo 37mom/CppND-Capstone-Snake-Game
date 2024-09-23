@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SDL.h"
 
+
 Game::Game(std::size_t grid_width, std::size_t grid_height,int Diffi)
     : snake(grid_width, grid_height),
       engine(dev()),
@@ -9,8 +10,12 @@ Game::Game(std::size_t grid_width, std::size_t grid_height,int Diffi)
       random_h(0, static_cast<int>(grid_height - 1))
 {
   Difficulty =Diffi;
+  //Invalidate the Coordinates
+  bonusFoodPoint.x=500;
+  bonusFoodPoint.y=500;
   PlaceFood();
   PlaceObstacle();
+
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -30,7 +35,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, ObstaclePosition);
+    renderer.Render(snake, food, ObstaclePosition,bonusFoodPoint);
 
     frame_end = SDL_GetTicks();
 
@@ -74,7 +79,23 @@ void Game::PlaceFood()
     }
   }
 }
-
+void Game::PlaceBonusFood()
+{
+  int x, y;
+  while (true)
+  {
+    x = random_w(engine);
+    y = random_h(engine);
+    // Check that the location is not occupied by a snake item before placing
+    // food.
+    if (!snake.SnakeCell(x, y) && !ObstacleCell(x, y))
+    {
+      bonusFoodPoint.x = x;
+      bonusFoodPoint.y = y;
+      return;
+    }
+  }
+}
 void Game::Update()
 {
   if (!snake.alive)
@@ -89,9 +110,17 @@ void Game::Update()
   if (food.x == new_x && food.y == new_y)
   {
     score++;
-    //Update Obstecle
+    //Update Obstacle
     PlaceObstacle();
     PlaceFood();
+    if ((!is_bonus_food_active)&& (score%2)==0)
+    { // Check if bonus food is already active
+      PlaceBonusFood();
+      is_bonus_food_active = true;
+      bonusFoodThread = std::thread(&Game::BonusFoodTimer, this);
+      bonusFoodThread.detach();
+      
+    }
     // Grow snake and increase speed.
     snake.GrowBody();
     if (Difficulty> 2) {
@@ -99,6 +128,11 @@ void Game::Update()
     }else{
       snake.speed += 0.02;
     }
+  }else if (bonusFoodPoint.x == new_x && bonusFoodPoint.y == new_y)
+  {
+    score=score+2;
+    bonusFoodPoint.x=0;
+    bonusFoodPoint.y=0;
   }
   else if (ObstacleCell(new_x, new_y))
   {
@@ -186,4 +220,30 @@ bool Game::ObstacleCell(int x, int y)
   }
   return false;
 }
-
+void Game::BonusFoodTimer()
+{
+  const int bonusSeconds = 5;
+  //SDL_Point bonusFoodPoint;
+  int x,y;
+  auto startTime = std::chrono::high_resolution_clock::now();
+  bonusFoodPoint.x = random_w(engine);
+  bonusFoodPoint.y = random_h(engine);
+  std::unique_lock<std::mutex> lock(mutex);
+  while (is_bonus_food_active)
+  {
+    lock.unlock();
+    auto current_Time = std::chrono::high_resolution_clock::now();
+    auto elapsed_Seconds = std::chrono::duration_cast<std::chrono::seconds>(current_Time - startTime).count();
+    if (elapsed_Seconds >= bonusSeconds)
+    {
+      // Bonus food time is up
+      is_bonus_food_active = false;
+      bonusFoodPoint.x = 500;
+      bonusFoodPoint.y = 500;
+      break;
+    }
+    lock.lock();
+    // Wait for a short interval or until the condition_variable is notified
+    condition_var.wait_for(lock, std::chrono::milliseconds(800));
+  }
+}

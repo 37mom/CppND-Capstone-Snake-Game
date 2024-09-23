@@ -42,7 +42,7 @@ void GameManager::GMA_Handler(int &State , GameUser * Usr)
     	case 2:
         endGameFlag = false;
         //Retrive Data
-        History = usr.ReadUsersHistory();
+        History = usr.GUS_ReadUsersHistory();
         usr.GUS_DisplayGameHistory(History);
         GMA_AddPlayer(Usr);
         

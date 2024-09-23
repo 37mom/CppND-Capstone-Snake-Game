@@ -14,9 +14,9 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Snake const snake, SDL_Point const &food ,std::vector<SDL_Point> const &ObstaclePos);
+  void Render(Snake const snake, SDL_Point const &food ,std::vector<SDL_Point> const &ObstaclePos,SDL_Point const &bonusFood);
   void UpdateWindowTitle(int score, int fps);
-
+  bool already_appeared{false};
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
@@ -29,6 +29,7 @@ class Renderer {
   std::mutex _mutex;
   void RenderSnake(Snake const snake);
   void RenderFood(SDL_Point const &food);
+  void RenderBonusFood(SDL_Point const &Bonusfood);
   void RenderObstacle(std::vector<SDL_Point> const &ObstaclePos);
 };
 

@@ -99,10 +99,3 @@ void GameUser::GUS_WriteUsersHistory(map<string, int> History)
   }
 
 }
-    
-
-
-
-
-
-

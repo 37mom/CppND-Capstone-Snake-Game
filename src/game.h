@@ -20,7 +20,7 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
-
+  SDL_Point bonusFoodPoint;
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
@@ -28,11 +28,17 @@ class Game {
   int score{0};
   int Difficulty{1} ;
   void PlaceFood();
+  void PlaceBonusFood();
   void Update();
 
   void PlaceObstacle();
   bool ObstacleCell(int x, int y); 
+  bool is_bonus_food_active{false};
   
+  std::mutex mutex; // Mutex
+  std::condition_variable condition_var;
+  std::thread bonusFoodThread;
+  void BonusFoodTimer();
 };
 
 #endif
