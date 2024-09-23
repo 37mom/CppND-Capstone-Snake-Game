@@ -44,3 +44,34 @@ This work is licensed under a
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+## New features  added to the game
+1. Add Game Start User interface
+2. Can Choose Game Difficulty (Easy ,Medium,Hard)
+3. Bonus Food Appear and increases score by +2 
+4. Save Player Name and Score and show them on Demand from the user interface
+
+## Information about each rubric point addressed.
+ **Compiling and Testing (All Rubric Points REQUIRED) -> DONE**
+ 
+**Loops, Functions, I/O  -> DONE**
+	The project demonstrates an understanding of C++ functions and control structures. **(GameManager.cpp)**
+	The project reads data from a file and process the data, or the program writes data to a file. **(GameUser.cpp, GUS_ReadUsersHistory())**
+	The project accepts user input and processes the input. **(GameManager.cpp , getPressedKey())**
+	The project uses data structures and immutable variables.** (GameUser.h, Line 30)**
+
+**Object Oriented Programming -> DONE**
+	One or more classes are added to the project with appropriate access specifiers for class members.. **(GameManager.cpp)**
+	Class constructors utilize member initialization lists**. (game.cpp)**
+	Overloaded functions allow the same function to operate on different parameters**.(GameUser.h)**
+
+**Memory Management -> DONE**
+	The project makes use of references in function declarations.. **(renderer.cpp,Render)**
+	The project uses destructors appropriately.**(renderer.cpp)**
+	The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+
+**Concurrency  -> DONE**
+	The project uses multithreading. **(renderer.cpp,Game.cpp)**
+	A condition variable is used in the project.**(renderer.cpp,Game.cpp)**
+	A mutex or lock is used in the project.**(enderer.cpp,Game.cpp)**
+
+	
